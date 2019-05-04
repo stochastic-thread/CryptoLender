@@ -4,7 +4,14 @@ class LoanInquiriesController < ApplicationController
   # GET /loan_inquiries
   # GET /loan_inquiries.json
   def index
-    @loan_inquiries = LoanInquiry.all
+    @loan_inquiries = []
+    LoanInquiry.all.each do |li|
+      if li.
+      @loan_inquiries.push()
+    end
+
+
+
   end
 
   # GET /loan_inquiries/1

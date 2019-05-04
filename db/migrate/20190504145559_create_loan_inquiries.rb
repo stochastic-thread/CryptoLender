@@ -4,7 +4,6 @@ class CreateLoanInquiries < ActiveRecord::Migration[5.2]
       t.decimal :amount
       t.decimal :rate
       t.integer :length
-
       t.timestamps
     end
   end
