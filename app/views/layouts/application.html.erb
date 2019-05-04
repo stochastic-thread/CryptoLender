@@ -50,21 +50,30 @@
           </li>
         <% end %>
         <span style="width: 5px"></span>
+        <% if current_user %>
+        <% if !current_user.investor_status %>
         <li class="nav-item">
+          <p style="color: black">Welcome, potential borrower!</p>
           <a class="btn btn-primary btn-md" href="/loan_inquiries" style="">Loan Inquiries</a>
+        <li>
+        <% else %>
+        <li>
+          <p style="color: black">Welcome, investor!</p>
         </li>
-        <span style="width: 5px"></span>
-        <li class="nav-item">
-          <a class="btn btn-primary btn-md" href="/contact" style="">contact</a>
-        </li>
-        <span style="width: 5px"></span>
-        <li class="nav-item">
-          <a class="btn btn-primary btn-md" href="/faq" style="">FAQ</a>
-        </li>
-        <span style="width: 5px"></span>
-        <li class="nav-item">
-          <a class="btn btn-primary btn-md" href="/investors" style="">Investors</a>
-        </li>
+        <% end %>
+        <button class="btn btn-sm" style="color: #3f47f6" onclick="toggle(); window.location.reload(false);">🏦</button>
+        <% end %>
+<!--        <li class="nav-item">-->
+<!--          <a class="btn btn-primary btn-md" href="/contact" style="">contact</a>-->
+<!--        </li>-->
+<!--        <span style="width: 5px"></span>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="btn btn-primary btn-md" href="/faq" style="">FAQ</a>-->
+<!--        </li>-->
+<!--        <span style="width: 5px"></span>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="btn btn-primary btn-md" href="/investors" style="">Investors</a>-->
+<!--        </li>-->
       </ul>
     </div>
   </nav>
@@ -97,5 +106,25 @@
         }
       }
     </style>
+    <script>
+        var csrfToken = $("meta[name='csrf-token']").attr("content");
+        var url = "/toggle";
+        function toggle() {
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                        xhr.setRequestHeader("X-CSRF-Token", csrfToken)
+                    }
+                }
+            });
+            $.ajax({
+                url: url,
+                data: {},
+                type: 'GET'
+            }).done(function(data){
+                console.log(`${data}`);
+            });
+        }
+    </script>
   </body>
 </html>
