@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_145559) do
+ActiveRecord::Schema.define(version: 2019_05_04_184837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2019_05_04_145559) do
     t.integer "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "borrower_id"
+    t.index ["borrower_id"], name: "index_loan_inquiries_on_borrower_id"
   end
 
   create_table "loans", force: :cascade do |t|
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_05_04_145559) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "loan_inquiries", "users", column: "borrower_id"
   add_foreign_key "loans", "users", column: "borrower_id"
   add_foreign_key "loans", "users", column: "lender_id"
 end
