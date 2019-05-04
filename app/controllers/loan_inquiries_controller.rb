@@ -7,7 +7,7 @@ class LoanInquiriesController < ApplicationController
     @loan_inquiries = []
     LoanInquiry.all.each do |li|
       
-      @loan_inquiries.push()
+      @loan_inquiries.push(li)
     end
 
 

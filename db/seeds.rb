@@ -6,25 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-puts 'first line'
-# puts LoanInquiry.exists?
-# puts Loan.exists?
-# puts User.exists?
 
 borrower = User.create({ :email => "borrower1@reco.com", password: "password", investor_status: false})
+borrower2 = User.create({ :email => "borrower2@reco.com", password: "password", investor_status: false})
 lender = User.create({ :email => "lender1@reco.com", password: "password", investor_status: true})
 
 
 loan_inquiry1 = LoanInquiry.create( {:borrower_id=>borrower.id, :amount => 125000.0, :rate => 2.65, :length => 365,} )
 loan_inquiry2 = LoanInquiry.create( {:borrower_id=>borrower.id,:amount => 1000.0, :rate => 1.0, :length => 730} )
 
-
-ap loan_inquiry1
-ap loan_inquiry2
-
-puts 'second line'
+loan_inquiry3 = LoanInquiry.create( {:borrower_id=>borrower2.id, :amount => 222.0, :rate => 1.11, :length => 365,} )
+loan_inquiry4 = LoanInquiry.create( {:borrower_id=>borrower2.id,:amount => 333.0, :rate => 2.22, :length => 730} )
 
 
+# ap loan_inquiry1
+# ap loan_inquiry2
+# ap loan_inquiry3
+# ap loan_inquiry4
 
-ap borrower
-ap lender
+# puts 'second line'
+
+
+
+# ap borrower
+# ap borrower2
+# ap lender
