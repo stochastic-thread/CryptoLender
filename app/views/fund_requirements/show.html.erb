@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @fund_requirement.amount %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @fund_requirement.rate %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @fund_requirement.length %>
+</p>
+
+<%= link_to 'Edit', edit_fund_requirement_path(@fund_requirement) %> |
+<%= link_to 'Back', fund_requirements_path %>

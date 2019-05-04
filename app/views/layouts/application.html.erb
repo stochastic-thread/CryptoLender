@@ -43,26 +43,6 @@
    
     <div class="collapse navbar-toggleable-md" id="mainNavbarCollapse" style="width: 100vw;">
       <ul class="nav navbar-nav pull-lg-right" style="    margin-right: 4vw;">
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link" href="#">About</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link" href="#">Blog</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item dropdown">-->
-<!--          <a class="nav-link" id="navbarDropdown1" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
-<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">-->
-<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
-<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-<!--          </ul>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link" href="#">Contact</a>-->
-<!--        </li>-->
         <% if !current_user %>
           <li class="nav-item">
             <a class="btn btn-primary btn-md" href="/users/sign_up" style="">register</a>
@@ -77,21 +57,30 @@
           </li>
         <% end %>
         <span style="width: 5px"></span>
+        <% if current_user %>
+        <% if !current_user.investor_status %>
         <li class="nav-item">
-          <a class="btn btn-primary btn-md" href="/blog" style="">blog</a>
+          <p style="color: black">Welcome, potential borrower!</p>
+          <a class="btn btn-primary btn-md" href="/loan_inquiries" style="">Loan Inquiries</a>
+        <li>
+        <% else %>
+        <li>
+          <p style="color: black">Welcome, investor!</p>
         </li>
-        <span style="width: 5px"></span>
-        <li class="nav-item">
-          <a class="btn btn-primary btn-md" href="/contact" style="">contact</a>
-        </li>
-        <span style="width: 5px"></span>
-        <li class="nav-item">
-          <a class="btn btn-primary btn-md" href="/faq" style="">FAQ</a>
-        </li>
-        <span style="width: 5px"></span>
-        <li class="nav-item">
-          <a class="btn btn-primary btn-md" href="/investors" style="">Investors</a>
-        </li>
+        <% end %>
+        <button class="btn btn-sm" style="color: #3f47f6" onclick="toggle(); window.location.reload(false);">🏦</button>
+        <% end %>
+<!--        <li class="nav-item">-->
+<!--          <a class="btn btn-primary btn-md" href="/contact" style="">contact</a>-->
+<!--        </li>-->
+<!--        <span style="width: 5px"></span>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="btn btn-primary btn-md" href="/faq" style="">FAQ</a>-->
+<!--        </li>-->
+<!--        <span style="width: 5px"></span>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="btn btn-primary btn-md" href="/investors" style="">Investors</a>-->
+<!--        </li>-->
       </ul>
     </div>
   </nav>
@@ -207,6 +196,25 @@ $(".previous").click(function(){
 $(".submit").click(function(){
 	return false;
 })
-</script>
+
+        var csrfToken = $("meta[name='csrf-token']").attr("content");
+        var url = "/toggle";
+        function toggle() {
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type)) {
+                        xhr.setRequestHeader("X-CSRF-Token", csrfToken)
+                    }
+                }
+            });
+            $.ajax({
+                url: url,
+                data: {},
+                type: 'GET'
+            }).done(function(data){
+                console.log(`${data}`);
+            });
+        }
+    </script>
   </body>
 </html>

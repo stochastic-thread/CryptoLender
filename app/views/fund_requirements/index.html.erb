@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Fund Requirements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Rate</th>
+      <th>Length</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @fund_requirements.each do |fund_requirement| %>
+      <tr>
+        <td><%= fund_requirement.amount %></td>
+        <td><%= fund_requirement.rate %></td>
+        <td><%= fund_requirement.length %></td>
+        <td><%= link_to 'Show', fund_requirement %></td>
+        <td><%= link_to 'Edit', edit_fund_requirement_path(fund_requirement) %></td>
+        <td><%= link_to 'Destroy', fund_requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Fund Requirement', new_fund_requirement_path %>

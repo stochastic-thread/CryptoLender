@@ -1,0 +1,92 @@
+<%= form_with(model: loan_inquiry_detail, local: true) do |form| %>
+  <% if loan_inquiry_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan_inquiry_detail.errors.count, "error") %> prohibited this loan_inquiry_detail from being saved:</h2>
+
+      <ul>
+      <% loan_inquiry_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :project_name %>
+    <%= form.text_field :project_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :damage_type %>
+    <%= form.text_field :damage_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :organization_type %>
+    <%= form.text_field :organization_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :damaged_address %>
+    <%= form.text_field :damaged_address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :insured %>
+    <%= form.check_box :insured %>
+  </div>
+
+  <div class="field">
+    <%= form.label :revenue %>
+    <%= form.text_field :revenue %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estimated_loss %>
+    <%= form.text_field :estimated_loss %>
+  </div>
+
+  <div class="field">
+    <%= form.label :headcount %>
+    <%= form.number_field :headcount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :industry %>
+    <%= form.text_field :industry %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_established %>
+    <%= form.text_field :date_established %>
+  </div>
+
+  <div class="field">
+    <%= form.label :previous_bankruptcy %>
+    <%= form.check_box :previous_bankruptcy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bankruptcy_count %>
+    <%= form.number_field :bankruptcy_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mailing_address %>
+    <%= form.text_field :mailing_address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

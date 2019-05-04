@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Loan Inquiry Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project name</th>
+      <th>Damage type</th>
+      <th>Organization type</th>
+      <th>Damaged address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Insured</th>
+      <th>Revenue</th>
+      <th>Estimated loss</th>
+      <th>Headcount</th>
+      <th>Industry</th>
+      <th>Date established</th>
+      <th>Previous bankruptcy</th>
+      <th>Bankruptcy count</th>
+      <th>Mailing address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loan_inquiry_details.each do |loan_inquiry_detail| %>
+      <tr>
+        <td><%= loan_inquiry_detail.project_name %></td>
+        <td><%= loan_inquiry_detail.damage_type %></td>
+        <td><%= loan_inquiry_detail.organization_type %></td>
+        <td><%= loan_inquiry_detail.damaged_address %></td>
+        <td><%= loan_inquiry_detail.city %></td>
+        <td><%= loan_inquiry_detail.state %></td>
+        <td><%= loan_inquiry_detail.insured %></td>
+        <td><%= loan_inquiry_detail.revenue %></td>
+        <td><%= loan_inquiry_detail.estimated_loss %></td>
+        <td><%= loan_inquiry_detail.headcount %></td>
+        <td><%= loan_inquiry_detail.industry %></td>
+        <td><%= loan_inquiry_detail.date_established %></td>
+        <td><%= loan_inquiry_detail.previous_bankruptcy %></td>
+        <td><%= loan_inquiry_detail.bankruptcy_count %></td>
+        <td><%= loan_inquiry_detail.mailing_address %></td>
+        <td><%= link_to 'Show', loan_inquiry_detail %></td>
+        <td><%= link_to 'Edit', edit_loan_inquiry_detail_path(loan_inquiry_detail) %></td>
+        <td><%= link_to 'Destroy', loan_inquiry_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loan Inquiry Detail', new_loan_inquiry_detail_path %>

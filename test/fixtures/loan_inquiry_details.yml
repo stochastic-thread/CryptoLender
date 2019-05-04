@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  project_name: MyString
+  damage_type: MyString
+  organization_type: MyString
+  damaged_address: MyString
+  city: MyString
+  state: MyString
+  insured: false
+  revenue: 9.99
+  estimated_loss: 9.99
+  headcount: 1
+  industry: MyString
+  date_established: MyString
+  previous_bankruptcy: false
+  bankruptcy_count: 1
+  mailing_address: MyString
+
+two:
+  project_name: MyString
+  damage_type: MyString
+  organization_type: MyString
+  damaged_address: MyString
+  city: MyString
+  state: MyString
+  insured: false
+  revenue: 9.99
+  estimated_loss: 9.99
+  headcount: 1
+  industry: MyString
+  date_established: MyString
+  previous_bankruptcy: false
+  bankruptcy_count: 1
+  mailing_address: MyString
