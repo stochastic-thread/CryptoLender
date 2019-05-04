@@ -6,6 +6,9 @@
 /bin
 Gemfile.lock
 
+Gemfile.lock
+/bin
+
 # Ignore bundler config.
 /.bundle
 
