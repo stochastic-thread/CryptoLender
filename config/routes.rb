@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fund_requirements
   resources :loan_inquiry_details
   resources :loan_inquiries
   resources :loans
