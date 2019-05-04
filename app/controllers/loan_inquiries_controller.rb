@@ -6,7 +6,7 @@ class LoanInquiriesController < ApplicationController
   def index
     @loan_inquiries = []
     LoanInquiry.all.each do |li|
-      if li.
+      
       @loan_inquiries.push()
     end
 
