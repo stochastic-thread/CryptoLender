@@ -1,8 +1,11 @@
 pragma solidity ^0.5.0;
 
-import "./ierc20token.sol";
+import "./Ownable.sol";
+import "./Oraclize.sol";
 
-contract Loan  {
+
+
+contract Loan is Ownable, OraclizeI {
     struct Rational {
         uint256 numerator;
         uint256 denominator;
@@ -10,18 +13,18 @@ contract Loan  {
 
     address lender;
     address borrower;
-
+    
+    mapping(address => uint256) internal balances;
+    
     Rational public interestRate;
 
     uint256 public dueDate;
     uint256 paymentPeriod;
 
     uint256 public remainingBalance;
-    uint256 minimumPayment;
+    uint256 public minimumPayment;
 
-    IERC20Token token;
-    uint256 collateralPerPayment;
-
+  
     constructor(
         address _lender,
         address _borrower,
@@ -29,33 +32,32 @@ contract Loan  {
         uint256 interestRateDenominator,
         uint256 _paymentPeriod,
         uint256 _minimumPayment,
-        uint256 principal,
-        IERC20Token _token,
-        uint256 units
+        uint256 principal
+        
     )
         public
-    {
+    {  
         lender = _lender;
         borrower = _borrower;
         interestRate = Rational(interestRateNumerator, interestRateDenominator);
         paymentPeriod = _paymentPeriod;
         minimumPayment = _minimumPayment;
         remainingBalance = principal;
-        token = _token;
-        collateralPerPayment = units;
-
-        uint256 x = minimumPayment * collateralPerPayment;
-        require(x / collateralPerPayment == minimumPayment,
-            "minimumPayment * collateralPerPayment overflows");
-
         dueDate = now + paymentPeriod;
+        
+    }
+    
+      modifier onlyBorrower() {
+        require(msg.sender == borrower);
+        _;
     }
 
     function multiply(uint256 x, Rational memory r) internal pure returns (uint256) {
         return  x * r.numerator / r.denominator;
     }
 
-    function calculateComponents(uint256 amount)
+    
+        function calculateComponents(uint256 amount)
         internal
         view
         returns (uint256 interest, uint256 principal)
@@ -65,58 +67,41 @@ contract Loan  {
         principal = amount - interest;
         return (interest, principal);
     }
-
-    function calculateCollateral(uint256 payment)
-        internal
-        view
-        returns (uint256 units)
-    {
-        uint256 product = collateralPerPayment * payment;
-        require(product / collateralPerPayment == payment, "payment causes overflow");
-        units = product / minimumPayment;
-        return units;
-    }
-
-    function processPeriod(uint256 interest, uint256 principal, address recipient) internal {
-        uint256 units = calculateCollateral(interest+principal);
-
-        remainingBalance -= principal;
-
-        dueDate += paymentPeriod;
-
-        require(token.transfer(recipient, units));
-    }
-
-    function makePayment() public payable {
+    
+    //1 wei, not 1 ether
+    
+    function makePayment(address loanOriginator) public onlyBorrower payable returns(bool){
         require(now <= dueDate);
+        require(msg.value >= minimumPayment);
 
-        uint256 interest;
-        uint256 principal;
-        (interest, principal) = calculateComponents(msg.value);
-
-        require(principal <= remainingBalance);
-        require(msg.value >= minimumPayment || principal == remainingBalance);
-
-        processPeriod(interest, principal, borrower);
+        // require(principal <= remainingBalance);
+        require(msg.value >= minimumPayment);
+        
+        balances[msg.sender] -= msg.value;
+        remainingBalance = remainingBalance - msg.value;
+        dueDate += paymentPeriod;
+        balances[loanOriginator] += msg.value;
+        
+        return true;
     }
-
-    function withdraw(address payable lender) public {
-        lender.transfer(address(this).balance);
+    
+       /// @notice Get balance
+    /// @return The balance of the user
+    // A SPECIAL KEYWORD prevents function from editing state variables;
+    // allows function to run locally/off blockchain
+    function balance() public view returns (uint) {
+        return balances[msg.sender];
+        
     }
+    
+    
+ 
 
-    function missedPayment() public {
-        require(now > dueDate);
 
-        uint256 interest;
-        uint256 principal;
-        (interest, principal) = calculateComponents(minimumPayment);
+    // function withdraw(address payable lender) public {
+    //     lender.transfer(address(this).balance);
+    // }
 
-        if (principal > remainingBalance) {
-            principal = remainingBalance;
-        }
-
-        processPeriod(interest, principal, lender);
-    }
 
     // function returnCollateral() public {
     //     require(remainingBalance == 0);

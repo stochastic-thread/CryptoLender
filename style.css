@@ -1,4 +1,4 @@
- /* .container {
+.container {
   padding: 2rem 0rem;
 }
 
@@ -6,17 +6,17 @@ h4 {
   margin: 2rem 0rem 1rem;
 }
 
-/* .table-image {
+ .table-image {
   td, th {
     vertical-align: middle;
   }
-} */
-/* .tag {
+} 
+.tag {
   background-color: green;
 }
 .bag {
   color:red; 
-}  */ 
+}  
 
 .test {
   color: red
