@@ -18,20 +18,24 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
-
+    <style>
+    .btn-primary{
+      background-color: unset;
+    border: none;
+    color: #373b3d;
+    }
+    </style>
   </head>
 
   <body>
   <!-- .navbar -->
-  <nav class="navbar navbar-full navbar-dark bg-primary">
+  <nav class="navbar navbar-full navbar-dark bg-primary" style="background-color: unset !important; position: absolute">
     <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">
       &#9776;
     </button>
-    <a class="navbar-brand" href="#">
-      <img class="img-rounded" src="https://placehold.it/48/fff8e7?text=Reco">
-    </a>
-    <div class="collapse navbar-toggleable-md" id="mainNavbarCollapse">
-      <ul class="nav navbar-nav pull-lg-right">
+   
+    <div class="collapse navbar-toggleable-md" id="mainNavbarCollapse" style="width: 100vw;">
+      <ul class="nav navbar-nav pull-lg-right" style="    margin-right: 4vw;">
 <!--        <li class="nav-item">-->
 <!--          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
 <!--        </li>-->
@@ -85,8 +89,6 @@
     </div>
   </nav>
   <!-- /.navbar -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
 
     <style>
