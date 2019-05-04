@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :loan_inquiry_details
   resources :loan_inquiries
   resources :loans
   devise_for :users
