@@ -1,0 +1,2 @@
+module LoanInquiriesHelper
+end
