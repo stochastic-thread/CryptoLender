@@ -1,29 +1,659 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<!-- MultiStep Form -->
+<div class="row">
+    <div class="col-md-12">
+        <form id="msform" class="">
+            <!-- progressbar -->
+            <ul id="progressbar">
+                <li class="active">General Information</li>
+                <li>Create Quote Request</li>
+                <li> Select Vendors  </li>
+              <li>Analysis Options</li>
+              <li>Review and Submit 
+</li>
+            </ul>
+            <!-- fieldsets -->
+            <fieldset>
+                <h2 class="fs-title">Step #1 General Information</h2>
+  <div class="text-left pb-20">            
+  <span class="text-left"><strong>Date:</strong></span><span class="pl-3 date">November 5, 2018 </span></div>
+<div class="form-group row edit">
+            <label class="input-group-text col-2 text-left font-weight-bold">Project Name: </label>
+            <input type="password" name="password" class="form-control col-10">
+</div> 
+<div class="form-group row">
+            <label class="input-group-text col-2 text-left font-weight-bold">Approximate Budget: </label>
+  <div class="input-group mb-3 col-6">
+  <div class="input-group-prepend left-border">
+    <span class="input-group-text pl-2">$</span>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+            <input type="number" name="password" class="form-control right-border">
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <p class="note mt-10">The budget for this purchase is a very important component of the CQR process. Most OEM and/or Publisher pricing is based on the actual size of
+the opportunity being quoted. </p>  
+</div> 
+<div class="form-group row">
+   <label class="input-group-text col-5 text-left font-weight-bold">Is budget for this purchase approved? </label>
+   <div class="form-check  col-1">
+      <label class="custom-control-label label-block" for="customRadio">YES</label>
+    <input type="radio" class="form-check-label" id="customRadio" name="example" value="customEx">
   </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-check   col-1">
+      <label class="custom-control-label label-block" for="customRadio2">NO</label>
+    <input type="radio" class="form-check-label" id="customRadio2" name="example" value="customEx">
+  </div> 
+</div> 
+<div class="form-group row">
+   <label class="input-group-text col-5 text-left font-weight-bold">Do you expect this project to expand in the next 12 months?  </label>
+   <div class="form-check  col-1">
+      <label class="custom-control-label label-block" for="customRadio3">YES</label>
+    <input type="radio" class="form-check-label" id="customRadio3" name="example1" value="customEx">
   </div>
-<% end %>
+  <div class="form-check   col-1">
+      <label class="custom-control-label label-block" for="customRadio4">NO</label>
+    <input type="radio" class="form-check-label" id="customRadio4" name="example1" value="customEx">
+  </div> 
+     <label class="input-group-text col-2 text-right font-weight-bold">How Much?  </label>
+  <div class="input-group mb-3 col-3">
+  <div class="input-group-prepend left-border">
+    <span class="input-group-text pl-2">$</span>
+  </div>
+            <input type="number" name="password" class="form-control right-border">
+  </div>
+</div> 
+<div class="form-group row ">
 
-<%= render "devise/shared/links" %>
+     <p class="note mt-10">Refurbished hardware carries the same support as new hardware at a fraction of the cost. There is no guarantee that there is stock available
+for your particular opportunity, but if you are willing to consider it… we are willing to try and locate it with no obligation.</p> 
+</div> 
+<div class="form-group row ">
+   <label class="input-group-text col-5 text-left font-weight-bold">Have you already solicited a quote for this opportunity?</label>
+   <div class="form-check  col-1">
+      <label class="custom-control-label label-block" for="customRadio">YES</label>
+    <input type="radio" class="form-check-label" id="customRadio" name="example3" value="customEx">
+  </div>
+  <div class="form-check   col-1">
+      <label class="custom-control-label label-block" for="customRadio2">NO</label>
+    <input type="radio" class="form-check-label" id="customRadio2" name="example3" value="customEx">
+  </div> 
+  </div>
+    <div class="form-group row">
+   <label class="input-group-text col-2 text-left font-weight-bold">From Whom?  </label> 
+ <select id="inputState" class="form-control col-2">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select>  
+  <select id="inputState" class="form-control col-2 ml-2">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select> 
+       <select id="inputState" class="form-control col-2 ml-2">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select> 
+   <p class="note-2 mt-10">Arista Direct, Dell Direct, HPE Direct, Lenovo Direct, UCS (Partner), Another VAR </p> 
+</div>      
+  <div class="form-group row">
+   <label class="input-group-text col-4 text-left font-weight-bold">How Soon Do You Need This Quote?  </label> 
+ <select id="inputState" class="form-control col-2 ml-2">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select> 
+   </div> 
+    <div class="form-group row">
+   <label class="input-group-text col-4 text-left font-weight-bold">How Soon Do You Need This Order Delivered? </label> 
+ <select id="inputState" class="form-control col-2 ml-2">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select> 
+   </div> 
+   <div class="form-group row">
+   <label class="input-group-text col-2 text-left font-weight-bold">Ship To Address:  </label> 
+ <div class="col-2">    
+ <select id="inputState" class="form-control">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select>
+     <input type="button" name="other" class="action-button-2 left-right-hover" value="Other"/>
+     </div>
+   </div>
+     <p class="note">The budget for this purchase is a very important component of the CQR process. Most OEM and/or Publisher pricing is based on the actual
+size of the opportunity.</p>
+    <div class="form-group row ">
+   <label class="input-group-text col-5 text-left font-weight-bold">Will you consider refurbished hardware?  </label>
+   <div class="form-check  col-1">
+      <label class="custom-control-label label-block" for="customRadio5">YES</label>
+    <input type="radio" class="form-check-label" id="customRadio5" name="example4" value="customEx">
+  </div>
+  <div class="form-check   col-1">
+      <label class="custom-control-label label-block" for="customRadio6">NO</label>
+    <input type="radio" class="form-check-label" id="customRadio6" name="example4" value="customEx">
+  </div>  
+  </div>          
+<input type="button" name="next" class="next action-button left-right-hover" value="Next"/>
+            </fieldset>
+            <fieldset>
+                 <h2 class="fs-title ">Step #2 CREATE QUOTE REQUEST</h2>
+                <p class="text-left font-weight-bold"> Choose one:</p>
+              <div class='row'>
+                <div class='col-6 text-right'>
+              
+                  <input type="button" name="other-2" class="action-button-2 left-  right-hover width-50" value="Quick Order Search"/>
+                  <div class="col-12 text-right">
+                  <p class='change-it font-italic'>Research your order history to request a refreshed
+                    or modified quote of a previous order. </p></div>
+                </div> 
+                <div class='col-6 text-left'>
+                  <input type="button" name="other-3" class="action-button-2 left-                        right-hover width-50" value="Upload RFQ Documents "/>
+                           <div class="col-12 text-right">
+                  <p class='change-it second font-italic'>Research your order history to request a refreshed
+                    or modified quote of a previous order. </p></div>
+                </div>
+                
+              </div>
+              <h2 class="fs-title text-left mb-0">Quick Order Search </h2>
+              <p class="text-left font-weight-bold font-italic mt-10 mb-10">If you are not interested in looking up a previous order please move to Step #2B to complete your CQR. </p>
+              <p class="text-left">Use this section if you would like to browse your order history to find a similar order that you would like to modify
+and/or repurchase that may be outside of your standard configuration or catalogue options. After you select an order,
+you will be prompted to describe any changes that you would like to make to the previous order before submiƫng
+your request.</p>      
+              <div class="row">
+                <div class="col-6 pl-5">
+                    <div class="form-check  col-12 text-center">
+      <label class="custom-control-label label-block font-weight-bold text-left" for="customRadio">Quick Search </label>
+    <input type="password" name="password" class="form-control col-6 " placeholder="Enter PO#">
+  </div>
+                  <div class="text-left">
+                    <input type="button" name="other-3" class="action-button-2 left-                        right-hover width-50 text-dark mid ml-3 mb" value="Browse My Order History"/>
+                  </div> 
+                </div>
+                <div class="col-6">
+                  <p class="text-left font-weight-bold font-size mb-0">Results </p>
+              <div class="media mb-3">
+  <img class="image-1" src="https://i.postimg.cc/qqk21yxc/kisspng-microsoft-excel-computer-icons-spreadsheet-compute-5adb6.jpg">
+                  <div class="media-body text-left mt-1 ml-2">
+                    <a href="#" class="text-underline"><u>11.08.18-AMAT-01 HPC Dell</u> </a>
+                  </div>
+                </div>
+              <div class="media">
+  <img class="image-1" src="https://i.postimg.cc/bNvSBz1h/kisspng-portable-document-format-computer-icons-icon-pdf-hd-5ab0.png">
+                  <div class="media-body text-left mt-1 ml-2">
+                    <a href="#" class="text-underline"><u>PO #4400123456 </u> </a>
+                  </div>
+                </div>
+              </div>
+              </div> 
+              <p class="note">Please describe any changes you would like made to the previous quote including, but not limited to, make,
+model, generation, # of devices, processor, memory, disk, storage capacity, OS, hypervisor, changes to the support
+SLA including term. </p>
+              <div class="row">
+                <div class="col-12 text-center">
+                  <input type="button" name="reset" class="action-button-previous" value="Reset "/>
+                </div>  
+ 
+              </div>
+              <h2 class="fs-title text-left mb-10">Upload RFQ</h2>
+              <p class="text-left">If you have a custom RFQ and sizing information please describe and upload the documents below and our
+team will begin working on your custom quote and/or comparison. We will review the documentation and
+come back with questions (if any) within 24 hours. </p>
+           <div class="row">
+             <div class="col-6 text-left">
+                   <input type="button" name="other-3" class="action-button-2 left-                        right-hover width-50 ml-5" value="Upload File"/>
+             </div>
+             <div class="col-6 text-left">
+               <a href="#">
+               <img src="https://i.postimg.cc/bNvSBz1h/kisspng-portable-document-format-computer-icons-icon-pdf-hd-5ab0.png" class="img-fluid image-1 mr-2"></a>
+               <a href="#">
+               <img src="https://i.postimg.cc/qqk21yxc/kisspng-microsoft-excel-computer-icons-spreadsheet-compute-5adb6.jpg" class="img-fluid image-1 mr-2"></a>
+               <a href="#">
+               <img src="https://i.postimg.cc/NfHvYnhz/kisspng-microsoft-powerpoint-computer-icons-ppt-presentati-micro.png" class="img-fluid image-1 mr-2"></a>
+               <a href="#">
+                 <img src="https://i.postimg.cc/QCNP76Vc/word.jpg" class="img-fluid image-1"></a>
+             </div>
+              </div>  
+               <div class="form-group">
+         <textarea class="form-control col-12" rows="5" id="comment" placeholder="Please include any other details or instructions here... "></textarea>
+            </div>
+                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input type="button" name="next" class="next action-button left-right-hover" value="Next"/>
+            </fieldset>
+            <fieldset>
+                  <h2 class="fs-title ">Step #3 Select Vendors for Comparable Quotes</h2>
+                 <div class="row">
+                   <div class="col-3">
+                        <div class="form-group row">
+   <label class="input-group-text col-12 text-center font-weight-bold">First Choice </label> 
+ <select id="inputState" class="form-control col-6 mx-auto mb-3">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select> 
+         <div class="col-12">                         
+ <input type="text" name="password" class="form-control col-7 mx-auto d-block" placeholder="other">
+                                        </div>                   
+   </div> 
+                   </div>  
+                                      <div class="col-3">
+                        <div class="form-group row">
+   <label class="input-group-text col-12 text-center font-weight-bold">Two Choice  </label> 
+ <select id="inputState" class="form-control col-6 mx-auto d-block mb-3">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select> 
+                           <div class="col-12">                         
+ <input type="text" name="password" class="form-control col-7 mx-auto d-block" placeholder="other">
+                                        </div>   
+                        
+   </div> 
+                   </div>
+                               <div class="col-3">
+                        <div class="form-group row">
+   <label class="input-group-text col-12 text-center font-weight-bold">Third Choice </label> 
+ <select id="inputState" class="form-control col-6 mx-auto mb-3">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select> 
+         <div class="col-12">                         
+ <input type="text" name="password" class="form-control col-7 mx-auto d-block" placeholder="other">
+                                        </div>                   
+   </div> 
+                   </div> 
+                                                <div class="col-3">
+                        <div class="form-group row">
+   <label class="input-group-text col-12 text-center font-weight-bold">Fourth Choice </label> 
+ <select id="inputState" class="form-control col-6 mx-auto mb-3">
+        <option selected>Select...</option>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+ </select> 
+         <div class="col-12">                         
+ <input type="text" name="password" class="form-control col-7 mx-auto d-block" placeholder="other">
+                                        </div>                   
+   </div> 
+                   </div> 
+                        </div>
+              <p class="text-left col-10 mx-auto">Adobe, APC, Apple, Arista, Aruba, Cisco, Citrix, Dell, EMC, Fujitsu, HPE, IBM, Juniper, Lenovo, MicrosoŌ,
+NetApp, Oracle, PaloAlto, Red Hat, SAP, Solarwinds, Symantec, UCS, Vblock, VMware, Other</p>
+                             <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input type="button" name="next" class="next action-button left-right-hover" value="Next"/>
+            </fieldset>
+                      <fieldset>
+                    <h2 class="fs-title ">Step #4 Analysis Options</h2>
+                        <p class="text-left">Choose the options that you would like included with your quotes</p>
+    <div class="form-group row">
+   <label class="input-group-text top col-3 text-left font-weight-bold">Quickspecs </label>
+   <div class="form-check  col-1 align-self-center">
+    <input type="checkbox" class="form-check-label" id="customCheckbox" name="example" value="customEx">
+  </div>
+</div>
+      <p class="note">The manufacturer’s QuickSpecs will be zipped and delivered with your quotes.</p>            <div class="form-group row">
+   <label class="input-group-text top col-3 text-left font-weight-bold">Visio Diagrams </label>
+   <div class="form-check  col-1 align-self-center">
+    <input type="checkbox" class="form-check-label" id="customCheckbox" name="example" value="customEx">
+  </div>
+</div>
+<p class="note">The manufacturer’s QuickSpecs will be zipped and delivered with your quotes.</p>
+          <div class="form-group row">
+   <label class="input-group-text top col-3 text-left font-weight-bold">Comprehensive Cost Comparison </label>
+   <div class="form-check  col-1 align-self-center">
+    <input type="checkbox" class="form-check-label" id="customCheckbox" name="example" value="customEx">
+  </div>
+</div>
+<p class="note">The manufacturer’s QuickSpecs will be zipped and delivered with your quotes.</p>
+               <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                <input type="button" name="next" class="next action-button left-right-hover" value="Next"/>
+            </fieldset>
+                      <fieldset>
+          <h2 class="fs-title ">Step #5 Review and Submit </h2>
+               <input type="button" name="previous" class="previous action-button-previous mid" value="Review Request "/>
+                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+            </fieldset>
+            
+        </form>
+        <!-- link to designify.me code snippets -->
+
+</div>
+<style>
+/*form styles*/
+body {
+/*   background:#000; */
+}
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 30px;
+}
+.form-control.right-border {
+  border-left:none;
+}
+.input-group-prepend.left-border {
+    border: 1px solid #ced4da;
+    border-radius: 0;
+    border-right:none;
+}
+.form-control.right-border:focus {
+  border-color: #ced4da !important;
+  border-left:none !important;
+}
+.input-group-text {
+  align-self: center;
+  display: inline-block;
+}
+.input-group-text.top {
+  align-self:flex-start;
+}
+.font-size {
+  font-size:14px;
+}
+.image-1 {
+  width:8%;
+}
+.mb {
+  margin-bottom:0.5rem !important;
+}
+.mb-10 {
+  margin-bottom:10px !important;
+}
+
+select:focus {
+  box-shadow:none !important;
+  outline:none !important;
+}
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 10%;
+
+    /*stacking fieldsets above each other*/
+    position: relative;
+}
+#msform input.previous.action-button-previous.mid[type='button'] {
+  width:130px;
+}
+p.change-it {
+     float: right;
+    font-size: 10px;
+    width: 50%;
+    text-align: justify;
+    font-weight: 600;
+}
+p.change-it.second {
+  float:left !important;
+}
+input.action-button-2.width-50[type='button'],.width-50 {
+  width:50% !important;
+}
+input.action-button-2.width-50.mid[type='button'] {
+  color:#000 !important;
+  width:46% !important;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+    display: none;
+}
+/* labels */
+
+/* inner form */
+.inner-form {
+    position: absolute;
+    z-index: 9;
+    margin-top: 15px;
+    margin-left: 2px;
+}
+/* note */
+.note {
+  background-color:#e9ecef;
+  padding:14px 20px;
+  text-align:left;
+  font-size:14px;
+}
+.note-2 {
+  padding:10px 0px 0 30px;
+  text-align:left;
+  font-size:12px;
+}
+label {
+  font-size:14px;
+  margin:5px 0 0;
+}
+.edit input,{
+  font-size:14px;
+}
+.label-block {
+  display:block;
+}
+/* /* radio buttons styling */
+/* label.label-edit {
+  display: inline-block;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+} */
+/* label.label-edit input {
+  display: none;
+}
+label.label-edit .rectangle {
+  display: inline-block;
+  width:30px;
+  height: 30px;
+  background-color:#e3e3e3;
+}
+label.label-edit .rectangle:hover {
+  background-color:#ccc;
+} 
+label.label-edit input:checked + .rectangle {
+  border:1px solid #000;
+}
+label.label-edit input:checked + .rectangle:after {
+  content:''; */
+} 
+/*inputs*/
+#msform input, #msform textarea {
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    font-size: 13px;
+  position: relative;
+}
+
+#msform input:focus, #msform textarea:focus  {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #2fb050;
+    outline-width: 0;
+    transition: All 0.5s ease-in;
+    -webkit-transition: All 0.5s ease-in;
+    -moz-transition: All 0.5s ease-in;
+    -o-transition: All 0.5s ease-in;
+}
+
+/*buttons*/
+#msform .action-button {
+    width: 100px;
+    background: #2fb050;
+    font-weight: 400;
+    color: white;
+    border: 0 none;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: 5px 5px;
+    font-size: 1rem;
+}
+ input.action-button-2[type='button']{
+    width: 100% !important;
+    background: #2fb050;
+    font-weight: 400;
+    color: white !important;
+    border: 0 none;
+    border-radius: 3px !important;
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: 5px 0px;
+    font-size: 14 px !important;
+}
+
+/* #msform .action-button:hover, #msform .action-button:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #ee0979;
+} */
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #fff;
+    font-weight: 400;
+    color:#2fb050;
+    border: 1px solid #2fb050;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 5px 5px;
+    margin: 5px 5px;
+    font-size: 1rem;
+}
+
+#msform .action-button-previous:hover, #msform .action-button-previous:focus {
+    box-shadow: 0 0 0 2px white, 0 0 0 3px #C5C5F1;
+}
+
+/*headings*/
+.fs-title {
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #000;
+    margin: 20px 0;
+    font-weight: bold;
+}
+.pb-20 {
+  padding-bottom:20px;
+}
+.mt-10 {
+  margin-top:10px;
+}
+.fs-subtitle {
+    font-weight: normal;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/*progressbar*/
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+
+#progressbar li {
+    list-style-type: none;
+    color:#2fb050;
+    text-transform: uppercase;
+    font-size: 12px;
+    width: 19.33%;
+    float: left;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+/*     width: 24px;
+    height: 24px;
+    line-height: 26px;
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background:#f2f2f2;
+    border-radius: 25px;
+    margin: 0 auto 10px auto; */
+      display: block;
+    margin: 0 auto 4px;
+    background-color: #fff;
+    width: 36px;
+    height: 36px;
+    line-height: 32px;
+    text-align: center;
+    font-weight: bold;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #2fb050;
+    border-radius: 50%;
+    color: #2fb050;
+}
+
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #f2f2f2;
+    position: absolute;
+    left: -50%;
+    top: 18px;
+    z-index: -1; /*put it behind the numbers*/
+}
+
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before, #progressbar li.active:after {
+    background:#2fb050;
+    color:#fff;
+}
+
+
+/* Not relevant to this form */
+.dme_link {
+    margin-top: 30px;
+    text-align: center;
+}
+.dme_link a {
+    background: #FFF;
+    font-weight: bold;
+    color: #ee0979;
+    border: 0 none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 5px 25px;
+    font-size: 12px;
+}
+
+.dme_link a:hover, .dme_link a:focus {
+    background: #C5C5F1;
+    text-decoration: none;
+}
+</style>
+
+<!-- /.MultiStep Form -->
