@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Loan Inquiries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Rate</th>
+      <th>Length</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @loan_inquiries.each do |loan_inquiry| %>
+      <tr>
+        <td><%= loan_inquiry.amount %></td>
+        <td><%= loan_inquiry.rate %></td>
+        <td><%= loan_inquiry.length %></td>
+        <td><%= link_to 'Show', loan_inquiry %></td>
+        <td><%= link_to 'Edit', edit_loan_inquiry_path(loan_inquiry) %></td>
+        <td><%= link_to 'Destroy', loan_inquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Loan Inquiry', new_loan_inquiry_path %>

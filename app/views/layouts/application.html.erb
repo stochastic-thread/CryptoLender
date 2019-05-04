@@ -7,11 +7,105 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
+  <!-- .navbar -->
+  <nav class="navbar navbar-full navbar-dark bg-primary">
+    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">
+      &#9776;
+    </button>
+    <a class="navbar-brand" href="#">
+      <img class="img-rounded" src="https://placehold.it/48/fff8e7?text=Reco">
+    </a>
+    <div class="collapse navbar-toggleable-md" id="mainNavbarCollapse">
+      <ul class="nav navbar-nav pull-lg-right">
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">About</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">Blog</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item dropdown">-->
+<!--          <a class="nav-link" id="navbarDropdown1" data-target="#" href="http://example.com" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
+<!--          <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">-->
+<!--            <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--          </ul>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">Contact</a>-->
+<!--        </li>-->
+        <% if !current_user %>
+          <li class="nav-item">
+            <a class="btn btn-primary btn-md" href="/users/sign_up" style="">register</a>
+          </li>
+          <span style="width: 5px"></span>
+          <li class="nav-item">
+            <a class="btn btn-primary btn-md" href="/users/sign_in" style="">sign in</a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'sign out', destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-md" %>
+          </li>
+        <% end %>
+        <span style="width: 5px"></span>
+        <li class="nav-item">
+          <a class="btn btn-primary btn-md" href="/blog" style="">blog</a>
+        </li>
+        <span style="width: 5px"></span>
+        <li class="nav-item">
+          <a class="btn btn-primary btn-md" href="/contact" style="">contact</a>
+        </li>
+        <span style="width: 5px"></span>
+        <li class="nav-item">
+          <a class="btn btn-primary btn-md" href="/faq" style="">FAQ</a>
+        </li>
+        <span style="width: 5px"></span>
+        <li class="nav-item">
+          <a class="btn btn-primary btn-md" href="/investors" style="">Investors</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- /.navbar -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+
+    <style>
+      // Make default navbar links display block at choosen breakpoint and adjust styles to fit...
+      @media (max-width: 62em) {
+        .navbar-nav {
+          padding-top: .425rem;
+          padding-left: 0.75rem;
+        }
+        .navbar-nav .nav-item {
+          float: none;
+        }
+        .navbar-brand {
+          float: right;
+        }
+        .navbar-brand,
+        .navbar-nav .nav-item {
+          display: block;
+        }
+        .navbar-nav .nav-item + .nav-item {
+          margin-left: 0;
+        }
+        .dropdown-menu {
+          position: relative;
+          float: none;
+        }
+      }
+    </style>
   </body>
 </html>

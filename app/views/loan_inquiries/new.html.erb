@@ -1,0 +1,9 @@
+<h1>New Loan Inquiry</h1>
+
+<% if current_user %>
+  <h1><%= current_user.email %></h1>
+<% end %>
+
+<%= render 'form', loan_inquiry: @loan_inquiry %>
+
+<%= link_to 'Back', loan_inquiries_path %>

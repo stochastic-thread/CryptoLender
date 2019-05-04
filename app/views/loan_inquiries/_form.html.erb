@@ -1,0 +1,33 @@
+<%= form_with(model: loan_inquiry, local: true) do |form| %>
+  <% if loan_inquiry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan_inquiry.errors.count, "error") %> prohibited this loan_inquiry from being saved:</h2>
+
+      <ul>
+      <% loan_inquiry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :amount, "Minimum amount (e.g. 54,000)" %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <% exrate = 6.25 %>
+    <%= form.label :rate, "Maximum interest rate (e.g. 6.25)" %>
+    <%= form.text_field :rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :length, "Minimum repayment date (in months, e.g. 36)" %>
+    <%= form.number_field :length %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
