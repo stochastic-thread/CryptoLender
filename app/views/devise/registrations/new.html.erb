@@ -90,10 +90,9 @@
 <div class="form-group row">
             <label class="input-group-text col-2 text-left font-weight-bold">Loan Amount: </label>
   <div class="input-group mb-3 col-6">
-  <div class="input-group-prepend left-border">
+  <div class="input-group-prepend border">
     <span class="input-group-text pl-2">$</span>
   </div>
-            <input type="number" name="password" class="form-control right-border">
   </div>
   <p class="note mt-10">The loan amount requested is a very important component of the process.</p>  
 </div> 
@@ -118,12 +117,11 @@
       <label class="custom-control-label label-block" for="customRadio4">NO</label>
     <input type="radio" class="form-check-label" id="customRadio4" name="example1" value="customEx">
   </div> 
-     <label class="input-group-text col-2 text-right font-weight-bold">How Much?  </label>
+     <label class="input-group-text col-2 text-right font-weight-bold">How Much?</label>
   <div class="input-group mb-3 col-3">
-  <div class="input-group-prepend left-border">
+  <div class="input-group-prepend border">
     <span class="input-group-text pl-2">$</span>
   </div>
-            <input type="number" name="password" class="form-control right-border">
   </div>
 </div> 
 <div class="form-group row ">
@@ -235,7 +233,7 @@ your request.</p>
     <input type="password" name="password" class="form-control col-6 " placeholder="Enter PO#">
   </div>
                   <div class="text-left">
-                    <input type="button" name="other-3" class="action-button-2 left-                        right-hover width-50 text-dark mid ml-3 mb" value="Browse My Order History"/>
+                    <input type="button" name="other-3" class="action-button-2 left-right-hover width-50 mid ml-3 mb" style="color:white !important;" value="Browse My Order History"/>
                   </div> 
                 </div>
                 <div class="col-6">
@@ -483,7 +481,15 @@ function redirect() {
 
 
 <style>
+
+.input-group.mb-3 {
+  position: relative !important;
+  top: 15px !important;
+}
 /*form styles*/
+.custom-control-label::before{
+  display: none;
+}
 body {
 /*   background:#000; */
 }
@@ -736,15 +742,6 @@ label.label-edit input:checked + .rectangle:after {
 #progressbar li:before {
     content: counter(step);
     counter-increment: step;
-/*     width: 24px;
-    height: 24px;
-    line-height: 26px;
-    display: block;
-    font-size: 12px;
-    color: #333;
-    background:#f2f2f2;
-    border-radius: 25px;
-    margin: 0 auto 10px auto; */
       display: block;
     margin: 0 auto 4px;
     background-color: #fff;
@@ -765,11 +762,11 @@ label.label-edit input:checked + .rectangle:after {
     content: '';
     width: 100%;
     height: 2px;
-    background: #f2f2f2;
+    background: #2125291a;
     position: absolute;
     left: -50%;
     top: 18px;
-    z-index: -1; /*put it behind the numbers*/
+    z-index: 0; /*put it behind the numbers*/
 }
 
 #progressbar li:first-child:after {
