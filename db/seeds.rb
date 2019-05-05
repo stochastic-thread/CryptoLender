@@ -7,11 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-lender  = User.create({:id => 1, :email => "lender1@reco.com", password: "password", investor_status: true})
-lender2 = User.create({:id => 2, :email => "lender2@reco.com", password: "password", investor_status: true})
+lender  = User.create({:id => 1, :first_name => "Darth", :last_name=>"Vader", 
+	                   :email => "lender1@reco.com", :password => "password", 
+                       :routing_number => "1234567890", :account_type => "checking", 
+                       :account_number => "1029384756", :investor_status => true})
 
-borrower  = User.create({:id => 3, :email => "borrower1@reco.com", password: "password", investor_status: false})
-borrower2 = User.create({:id => 4, :email => "borrower2@reco.com", password: "password", investor_status: false})
+lender2 = User.create({:id => 2, :first_name => "Luke", :last_name=>"Skywalker", 
+	                   :email => "lender2@reco.com", :password => "password", 
+                       :routing_number => "0987654321", :account_type => "savings", 
+                       :account_number =>"2468135790", :investor_status=> true})
+
+borrower  = User.create({:id => 3, :first_name => "Han", :last_name=>"Solo", 
+	                     :email => "borrower1@reco.com", :password => "password",  
+	                     :routing_number => "1234567890", :account_type => "checking", 
+                         :account_number =>"7788776655", :investor_status => false})
+
+borrower2 = User.create({:id => 4, :first_name => "Boba", :last_name=>"Fett", 
+	                     :email => "borrower2@reco.com", :password => "password", 
+	                     :routing_number => "1234567890", :account_type => "checking", 
+                         :account_number =>"0099887766", :investor_status => false})
 
 
 
