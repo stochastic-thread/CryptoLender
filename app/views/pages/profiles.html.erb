@@ -637,19 +637,32 @@ $(document).ready(function() {
     $('#example').DataTable();
 } );
 
-let aj = $.ajax({
+$.ajax({
   url: 'https://randomuser.me/api/?results=10',
   dataType: 'json',
-  success: function(data) {
+  success: function(data) { 
 	let pics = data.results.map(e=> e.picture.thumbnail);
 	
-	// $('.sorting_1').css('text-align', 'center');
-
 	$('.sorting_1').map( (i, e) => {
 		$(e).append(`<img src=${pics[i]} style="border-radius: 50%;margin:auto">`);
 	})
   }
 });
+
+$('.paginate-button').on('click', (e) => {
+
+    $.ajax({
+    url: 'https://randomuser.me/api/?results=10',
+    dataType: 'json',
+    success: function(data) { 
+        let pics = data.results.map(e=> e.picture.thumbnail);
+        
+        $('.sorting_1').map( (i, e) => {
+            $(e).append(`<img src=${pics[i]} style="border-radius: 50%;margin:auto">`);
+        })
+    }
+    });
+})
 
 
 

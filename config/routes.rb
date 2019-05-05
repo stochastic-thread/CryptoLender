@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   authenticated :user do 
     root :to => "pages#dashboard" 
   end
+  get '/', to: "pages#index"
+  get '/dashboard', to: "pages#dashboard"
   get '/toggle',          to: "users#toggle"
   get '/showViableFunds', to: "users#showViableFunds"
   get '/investor_profiles', to: "pages#profiles"
