@@ -1,2 +1,13 @@
-<h1>PaymentGateway#create_transaction</h1>
-<p>Find me in app/views/payment_gateway/create_transaction.html.erb</p>
+<div class="container">
+  <% if @response != nil  %>
+      <%# if @response.messages.resultCode == MessageTypeEnum::Ok  %>
+        <% if @response.transactionResponse != nil && (@response.transactionResponse.messages != nil) %>
+          <p><%= @response.transactionResponse.messages.messages[0].description %></p>
+        <%# end %>
+      <% else %>
+          <p> Transaction failed. Please contact your administrator. </p>
+        <% end %>
+    <% else %>
+
+    <% end %>
+</div>
