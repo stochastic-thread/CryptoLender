@@ -7,11 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-lender  = User.create({ :email => "lender1@reco.com", password: "password", investor_status: true})
-lender2 = User.create({ :email => "lender2@reco.com", password: "password", investor_status: true})
+lender  = User.create({:id => 1, :email => "lender1@reco.com", password: "password", investor_status: true})
+lender2 = User.create({:id => 2, :email => "lender2@reco.com", password: "password", investor_status: true})
 
-borrower  = User.create({ :email => "borrower1@reco.com", password: "password", investor_status: false})
-borrower2 = User.create({ :email => "borrower2@reco.com", password: "password", investor_status: false})
+borrower  = User.create({:id => 3, :email => "borrower1@reco.com", password: "password", investor_status: false})
+borrower2 = User.create({:id => 4, :email => "borrower2@reco.com", password: "password", investor_status: false})
 
 
 
