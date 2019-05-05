@@ -73,11 +73,10 @@
             <!-- progressbar -->
             <ul id="progressbar">
                 <li class="active">General Information</li>
-                <li>Create Quote Request</li>
-                <li> Select Vendors  </li>
+                <li>Create Loan Request</li>
+                <li> Select Lenders </li>
               <li>Analysis Options</li>
-              <li>Review and Submit 
-</li>
+              <li>Review and Submit</li>
             </ul>
             <!-- fieldsets -->
             <fieldset>
@@ -89,18 +88,16 @@
             <input type="password" name="password" class="form-control col-10">
 </div> 
 <div class="form-group row">
-            <label class="input-group-text col-2 text-left font-weight-bold">Approximate Budget: </label>
+            <label class="input-group-text col-2 text-left font-weight-bold">Loan Amount: </label>
   <div class="input-group mb-3 col-6">
-  <div class="input-group-prepend left-border">
+  <div class="input-group-prepend border">
     <span class="input-group-text pl-2">$</span>
   </div>
-            <input type="number" name="password" class="form-control right-border">
   </div>
-  <p class="note mt-10">The budget for this purchase is a very important component of the CQR process. Most OEM and/or Publisher pricing is based on the actual size of
-the opportunity being quoted. </p>  
+  <p class="note mt-10">The loan amount requested is a very important component of the process.</p>  
 </div> 
 <div class="form-group row">
-   <label class="input-group-text col-5 text-left font-weight-bold">Is budget for this purchase approved? </label>
+   <label class="input-group-text col-5 text-left font-weight-bold">Is request for this loan approved? </label>
    <div class="form-check  col-1">
       <label class="custom-control-label label-block" for="customRadio">YES</label>
     <input type="radio" class="form-check-label" id="customRadio" name="example" value="customEx">
@@ -111,7 +108,7 @@ the opportunity being quoted. </p>
   </div> 
 </div> 
 <div class="form-group row">
-   <label class="input-group-text col-5 text-left font-weight-bold">Do you expect this project to expand in the next 12 months?  </label>
+   <label class="input-group-text col-5 text-left font-weight-bold">Do you expect this request to increase in the next 12 months?  </label>
    <div class="form-check  col-1">
       <label class="custom-control-label label-block" for="customRadio3">YES</label>
     <input type="radio" class="form-check-label" id="customRadio3" name="example1" value="customEx">
@@ -120,21 +117,17 @@ the opportunity being quoted. </p>
       <label class="custom-control-label label-block" for="customRadio4">NO</label>
     <input type="radio" class="form-check-label" id="customRadio4" name="example1" value="customEx">
   </div> 
-     <label class="input-group-text col-2 text-right font-weight-bold">How Much?  </label>
+     <label class="input-group-text col-2 text-right font-weight-bold">How Much?</label>
   <div class="input-group mb-3 col-3">
-  <div class="input-group-prepend left-border">
+  <div class="input-group-prepend border">
     <span class="input-group-text pl-2">$</span>
   </div>
-            <input type="number" name="password" class="form-control right-border">
   </div>
 </div> 
 <div class="form-group row ">
-
-     <p class="note mt-10">Refurbished hardware carries the same support as new hardware at a fraction of the cost. There is no guarantee that there is stock available
-for your particular opportunity, but if you are willing to consider it… we are willing to try and locate it with no obligation.</p> 
 </div> 
 <div class="form-group row ">
-   <label class="input-group-text col-5 text-left font-weight-bold">Have you already solicited a quote for this opportunity?</label>
+   <label class="input-group-text col-5 text-left font-weight-bold">Have you already requested a loan for this declaration?</label>
    <div class="form-check  col-1">
       <label class="custom-control-label label-block" for="customRadio">YES</label>
     <input type="radio" class="form-check-label" id="customRadio" name="example3" value="customEx">
@@ -164,10 +157,9 @@ for your particular opportunity, but if you are willing to consider it… we are
         <option>2</option>
         <option>3</option>
  </select> 
-   <p class="note-2 mt-10">Arista Direct, Dell Direct, HPE Direct, Lenovo Direct, UCS (Partner), Another VAR </p> 
 </div>      
   <div class="form-group row">
-   <label class="input-group-text col-4 text-left font-weight-bold">How Soon Do You Need This Quote?  </label> 
+   <label class="input-group-text col-4 text-left font-weight-bold">How Soon Do You Need This Loan?  </label> 
  <select id="inputState" class="form-control col-2 ml-2">
         <option selected>Select...</option>
         <option>1</option>
@@ -176,7 +168,7 @@ for your particular opportunity, but if you are willing to consider it… we are
  </select> 
    </div> 
     <div class="form-group row">
-   <label class="input-group-text col-4 text-left font-weight-bold">How Soon Do You Need This Order Delivered? </label> 
+   <label class="input-group-text col-4 text-left font-weight-bold">How Soon Do You Need This Loan Funded? </label> 
  <select id="inputState" class="form-control col-2 ml-2">
         <option selected>Select...</option>
         <option>1</option>
@@ -185,7 +177,7 @@ for your particular opportunity, but if you are willing to consider it… we are
  </select> 
    </div> 
    <div class="form-group row">
-   <label class="input-group-text col-2 text-left font-weight-bold">Ship To Address:  </label> 
+   <label class="input-group-text col-2 text-left font-weight-bold">Mail To Address:  </label> 
  <div class="col-2">    
  <select id="inputState" class="form-control">
         <option selected>Select...</option>
@@ -196,10 +188,8 @@ for your particular opportunity, but if you are willing to consider it… we are
      <input type="button" name="other" class="action-button-2 left-right-hover" value="Other"/>
      </div>
    </div>
-     <p class="note">The budget for this purchase is a very important component of the CQR process. Most OEM and/or Publisher pricing is based on the actual
-size of the opportunity.</p>
     <div class="form-group row ">
-   <label class="input-group-text col-5 text-left font-weight-bold">Will you consider refurbished hardware?  </label>
+   <label class="input-group-text col-5 text-left font-weight-bold">Will you consider secondary loans?  </label>
    <div class="form-check  col-1">
       <label class="custom-control-label label-block" for="customRadio5">YES</label>
     <input type="radio" class="form-check-label" id="customRadio5" name="example4" value="customEx">
@@ -212,7 +202,7 @@ size of the opportunity.</p>
 <input type="button" name="next" class="next action-button left-right-hover" value="Next"/>
             </fieldset>
             <fieldset>
-                 <h2 class="fs-title ">Step #2 CREATE QUOTE REQUEST</h2>
+                 <h2 class="fs-title ">Step #2 CREATE LOAN REQUEST</h2>
                 <p class="text-left font-weight-bold"> Choose one:</p>
               <div class='row'>
                 <div class='col-6 text-right'>
@@ -243,7 +233,7 @@ your request.</p>
     <input type="password" name="password" class="form-control col-6 " placeholder="Enter PO#">
   </div>
                   <div class="text-left">
-                    <input type="button" name="other-3" class="action-button-2 left-                        right-hover width-50 text-dark mid ml-3 mb" value="Browse My Order History"/>
+                    <input type="button" name="other-3" class="action-button-2 left-right-hover width-50 mid ml-3 mb" style="color:white !important;" value="Browse My Order History"/>
                   </div> 
                 </div>
                 <div class="col-6">
@@ -271,8 +261,8 @@ SLA including term. </p>
                 </div>  
  
               </div>
-              <h2 class="fs-title text-left mb-10">Upload RFQ</h2>
-              <p class="text-left">If you have a custom RFQ and sizing information please describe and upload the documents below and our
+              <h2 class="fs-title text-left mb-10">Upload Financial Statements</h2>
+              <p class="text-left">If you have a custom FS and sizing information please describe and upload the documents below and our
 team will begin working on your custom quote and/or comparison. We will review the documentation and
 come back with questions (if any) within 24 hours. </p>
            <div class="row">
@@ -297,7 +287,7 @@ come back with questions (if any) within 24 hours. </p>
                 <input type="button" name="next" class="next action-button left-right-hover" value="Next"/>
             </fieldset>
             <fieldset>
-                  <h2 class="fs-title ">Step #3 Select Vendors for Comparable Quotes</h2>
+                  <h2 class="fs-title ">Step #3 Select Lenders for Comparable Quotes</h2>
                  <div class="row">
                    <div class="col-3">
                         <div class="form-group row">
@@ -476,7 +466,7 @@ NetApp, Oracle, PaloAlto, Red Hat, SAP, Solarwinds, Symantec, UCS, Vblock, VMwar
                             </a>
                         </li>
                     </ul>
-                    <div class="footer-copyright">&copy; 2018 April, all rights reserved</div>
+                    <div class="footer-copyright">&copy; 2018 Reco, all rights reserved</div>
                 </div>
             </div>
         </footer>
@@ -491,7 +481,15 @@ function redirect() {
 
 
 <style>
+
+.input-group.mb-3 {
+  position: relative !important;
+  top: 15px !important;
+}
 /*form styles*/
+.custom-control-label::before{
+  display: none;
+}
 body {
 /*   background:#000; */
 }
@@ -744,15 +742,6 @@ label.label-edit input:checked + .rectangle:after {
 #progressbar li:before {
     content: counter(step);
     counter-increment: step;
-/*     width: 24px;
-    height: 24px;
-    line-height: 26px;
-    display: block;
-    font-size: 12px;
-    color: #333;
-    background:#f2f2f2;
-    border-radius: 25px;
-    margin: 0 auto 10px auto; */
       display: block;
     margin: 0 auto 4px;
     background-color: #fff;
@@ -773,11 +762,11 @@ label.label-edit input:checked + .rectangle:after {
     content: '';
     width: 100%;
     height: 2px;
-    background: #f2f2f2;
+    background: #2125291a;
     position: absolute;
     left: -50%;
     top: 18px;
-    z-index: -1; /*put it behind the numbers*/
+    z-index: 0; /*put it behind the numbers*/
 }
 
 #progressbar li:first-child:after {
