@@ -391,7 +391,7 @@ NetApp, Oracle, PaloAlto, Red Hat, SAP, Solarwinds, Symantec, UCS, Vblock, VMwar
                       <fieldset>
           <h2 class="fs-title ">Step #5 Review and Submit </h2>
                <input type="button" name="previous" class="previous action-button-previous mid" value="Review Request "/>
-                 <input type="submit" name="submit" class="submit action-button" value="Submit"/>
+                 <input onclick="redirect()" type="submit" name="submit" class="submit action-button" value="Submit"/>
             </fieldset>
             
         </form>
@@ -482,7 +482,9 @@ NetApp, Oracle, PaloAlto, Red Hat, SAP, Solarwinds, Symantec, UCS, Vblock, VMwar
         </footer>
     </div>
 <script>
- 
+function redirect() {
+  window.location.href = '/investor_profiles'
+}
 </script>
 </body>
 
