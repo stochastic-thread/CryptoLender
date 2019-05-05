@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Reco</title>
-    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Fira+Sans:600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Heebo:400,500,700|Fira+Sans:600" rel="stylesheet">    
 	  <link href="https://desk.netsitsolutions.com/public/theme/assets/css/main.css" rel="stylesheet">
     <link href="https://desk.netsitsolutions.com/public/theme/assets/css/responsive.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
@@ -27,6 +27,9 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <style>
+     *{
+       font-family: 'Fira Sans', sans-serif;
+     }
       .btn-primary{
         background-color: unset;
       border: none;
@@ -51,58 +54,7 @@
     a:visited {
       color: #3738d1 !important;
     }
-    </style>
-  </head>
-
-  <body>
-  <!-- .navbar -->
-  <nav class="navbar navbar-expand navbar-full navbar-dark bg-primary" style="background-color: unset !important; position: absolute">
-    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#mainNavbarCollapse">
-      &#9776;
-    </button>
-   
-    <div class="collapse navbar-toggleable-md" id="mainNavbarCollapse" style="width: 100vw;">
-      <ul class="nav navbar-nav pull-lg-right" style="    margin-right: 4vw;">
-        <% if !current_user %>
-          <li class="nav-item">
-            <a class="btn btn-primary btn-md" href="/users/sign_up" style="">Sign Up</a>
-          </li>
-          <span style="width: 5px"></span>
-          <li class="nav-item">
-            <a class="btn btn-primary btn-md" href="/users/sign_in" style="">Sign In</a>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to 'sign out', destroy_user_session_path, :method => :delete, class: "btn btn-primary btn-md" %>
-          </li>
-        <% end %>
-        <span style="width: 5px"></span>
-        <% if current_user %> 
-        <p style="color: black">User ID: <%= current_user.id %></p>
-        <span style="width: 10px"></span>
-
-        <% if !current_user.investor_status %>
-        <li class="nav-item">
-          <p style="color: black">Welcome, potential borrower!</p>
-          <a class="btn btn-primary btn-md" href="/loan_inquiries" style="">My Loan Inquiries</a>
-          <a class="btn btn-primary btn-md" href="/showViableFunds" style="">Loan Offers</a>
-          <a class="btn btn-primary btn-md" href="/loans" style="">Loans</a>
-        <li>
-        <% else %>
-        <li>
-          <p style="color: black">Welcome, investor!</p>
-        </li>
-        <% end %>
-        <button class="btn btn-sm" style="color: #3f47f6" onclick="toggle(); window.location.reload(false);">🏦</button>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-  <!-- /.navbar -->
-    <%= yield %>
-
-    <style>
-      // Make default navbar links display block at choosen breakpoint and adjust styles to fit...
+    // Make default navbar links display block at choosen breakpoint and adjust styles to fit...
       @media (max-width: 62em) {
         .navbar-nav {
           padding-top: .425rem;
