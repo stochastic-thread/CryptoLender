@@ -57,11 +57,14 @@
           </li>
         <% end %>
         <span style="width: 5px"></span>
-        <% if current_user %>
+        <% if current_user %> 
+        <p style="color: black">User ID: <%= current_user.id %></p>
+        <span style="width: 10px"></span>
         <% if !current_user.investor_status %>
         <li class="nav-item">
           <p style="color: black">Welcome, potential borrower!</p>
-          <a class="btn btn-primary btn-md" href="/loan_inquiries" style="">Loan Inquiries</a>
+          <a class="btn btn-primary btn-md" href="/loan_inquiries" style="">My Loan Inquiries</a>
+          <a class="btn btn-primary btn-md" href="/showViableFunds" style="">Loan Offers</a>
         <li>
         <% else %>
         <li>
@@ -111,6 +114,9 @@
           position: relative;
           float: none;
         }
+      }
+      a:visited{
+        color: lightgrey;
       }
     </style>
     <script>

@@ -61,6 +61,11 @@ class FundRequirementsController < ApplicationController
     end
   end
 
+  def deactivate
+    @fund_requirement.active = false
+    @fund_requirement.save!
+  end
+
   # DELETE /fund_requirements/1
   # DELETE /fund_requirements/1.json
   def destroy

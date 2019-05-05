@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Viable Funds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Principal balance</th>
+      <th>Interest rate</th>
+      <th>Days to maturity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @viable_funds.each do |vf| %>
+      <tr>
+        <td><%= vf.amount %></td>
+        <td><%= vf.rate %></td>
+        <td><%= vf.length %></td>
+        <!-- <td><%= link_to 'accept', loans_path, data: vf.to_param  %></td>  -->
+        <td><%= button_to "accept", 
+            {:controller => "loans", 
+             :action => "create", 
+             :loan => {
+                 :principal_balance => vf.amount, 
+                 :interest_rate     => vf.rate,
+                 :days_to_maturity  => vf.length,
+                 :borrower_id       => current_user.id,
+                 :lender_id         => vf.lender_id
+             },
+             :funding_requirement => {
+                 :id => vf.id
+             },
+             :method=>:post
+            }  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!--<%= link_to 'New Loan', new_loan_path %> -->

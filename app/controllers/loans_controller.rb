@@ -1,5 +1,8 @@
+
+# alias FundingRequirement
 class LoansController < ApplicationController
-  before_action :set_loan, only: [:show, :edit, :update, :destroy]
+  # before_action :set_loan, only: [:show, :edit, :update, :destroy]
+
 
   # GET /loans
   # GET /loans.json
@@ -25,11 +28,18 @@ class LoansController < ApplicationController
   # POST /loans.json
   def create
     @loan = Loan.new(loan_params)
-
+    
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
+        format.html { redirect_to '/', notice: 'Loan was successfully created.' }
         format.json { render :show, status: :created, location: @loan }
+        
+        # set the funding requirement to inactive
+        @fr = FundRequirement.find(funding_requirement_params[:id])
+        
+        @fr.active = false
+        @fr.save!
+
       else
         format.html { render :new }
         format.json { render json: @loan.errors, status: :unprocessable_entity }
@@ -67,8 +77,12 @@ class LoansController < ApplicationController
       @loan = Loan.find(params[:id])
     end
 
+    def funding_requirement_params
+      params.require(:funding_requirement).permit(:id)
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_params
-      params.require(:loan).permit(:principal_balance, :interest_rate, :days_to_maturity)
+      params.require(:loan).permit(:principal_balance, :interest_rate, :days_to_maturity, :borrower_id, :lender_id)
     end
 end
