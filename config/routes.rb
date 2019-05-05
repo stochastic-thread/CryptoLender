@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/toggle',          to: "users#toggle"
   get '/showViableFunds', to: "users#showViableFunds"
   get '/investor_profiles', to: "pages#profiles"
+  post '/payment_gateway/create_transaction', to: "payment_gateway#create_transaction"
   get '/fund_requirements', to: "fund_requirements#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "pages#index"

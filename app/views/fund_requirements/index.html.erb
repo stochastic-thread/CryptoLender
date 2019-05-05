@@ -16,7 +16,7 @@
         <td><%= fund_requirement.amount %></td>
         <td><%= fund_requirement.rate %></td>
         <td><%= fund_requirement.length %></td>
-        <td><%= link_to 'Finance', payment_gateway_create_transaction, data: { } %></td>
+        <td><%= button_to 'Finance', {:controller => "payment_gateway", :action => "create_transaction", :tx => { :amount => fund_requirement.amount, :account_type => "checking", :routing_number => nil, :account_number => nil, :investor_name => "John Doe" }, :method => :post } %></td>
         <td><%= link_to 'Edit', edit_fund_requirement_path(fund_requirement) %></td>
         <td><%= link_to 'Destroy', fund_requirement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
