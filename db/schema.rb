@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_213225) do
+ActiveRecord::Schema.define(version: 2019_05_05_044317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_05_04_213225) do
     t.datetime "updated_at", null: false
     t.bigint "lender_id"
     t.boolean "active", default: false
+    t.boolean "financed", default: false
     t.index ["lender_id"], name: "index_fund_requirements_on_lender_id"
   end
 
