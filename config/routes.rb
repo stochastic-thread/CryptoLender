@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'payment_gateway/create_transaction'
   # get 'users/toggleStatus'
   resources :fund_requirements
   resources :loan_inquiry_details
